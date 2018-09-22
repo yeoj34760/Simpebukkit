@@ -54,6 +54,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.app.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.app.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.app.ForeColor = System.Drawing.Color.White;
             this.app.Location = new System.Drawing.Point(12, 417);
             this.app.Name = "app";
             this.app.Size = new System.Drawing.Size(776, 14);
