@@ -38,14 +38,9 @@
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.RAM = new System.Windows.Forms.ToolStripMenuItem();
-            this.RAMSE = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ppapp = new System.Windows.Forms.ToolStripMenuItem();
-            this.pppp = new System.Windows.Forms.ToolStripComboBox();
-            this.menuStrip1.SuspendLayout();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // app
@@ -92,7 +87,6 @@
             this.ppap.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ppap.Size = new System.Drawing.Size(776, 338);
             this.ppap.TabIndex = 0;
-            this.ppap.TextChanged += new System.EventHandler(this.ppap_TextChanged);
             // 
             // button1
             // 
@@ -160,64 +154,25 @@
             // 
             this.ContentPanel.Size = new System.Drawing.Size(150, 150);
             // 
-            // menuStrip1
+            // toolStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.설정ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // 설정ToolStripMenuItem
+            // toolStripButton1
             // 
-            this.설정ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.RAM,
-            this.toolStripMenuItem1});
-            this.설정ToolStripMenuItem.Name = "설정ToolStripMenuItem";
-            this.설정ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.설정ToolStripMenuItem.Text = "설정";
-            // 
-            // RAM
-            // 
-            this.RAM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.RAMSE});
-            this.RAM.Name = "RAM";
-            this.RAM.Size = new System.Drawing.Size(100, 22);
-            this.RAM.Text = "RAM";
-            // 
-            // RAMSE
-            // 
-            this.RAMSE.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RAMSE.Name = "RAMSE";
-            this.RAMSE.Size = new System.Drawing.Size(100, 16);
-            this.RAMSE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RAMSE_KeyPress);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ppapp});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
-            this.toolStripMenuItem1.Text = "기타";
-            // 
-            // ppapp
-            // 
-            this.ppapp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pppp});
-            this.ppapp.Name = "ppapp";
-            this.ppapp.Size = new System.Drawing.Size(194, 22);
-            this.ppapp.Text = "서버 종료시 자동 정리";
-            // 
-            // pppp
-            // 
-            this.pppp.Items.AddRange(new object[] {
-            "true",
-            "false"});
-            this.pppp.Name = "pppp";
-            this.pppp.Size = new System.Drawing.Size(121, 23);
-            this.pppp.SelectedIndexChanged += new System.EventHandler(this.pppp_SelectedIndexChanged);
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(35, 22);
+            this.toolStripButton1.Text = "설정";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // Form1
             // 
@@ -225,16 +180,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.app);
             this.Controls.Add(this.ppap);
-            this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
             this.Text = "Simpebukkit";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,12 +207,8 @@
         private System.Windows.Forms.ToolStripPanel LeftToolStripPanel;
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 설정ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem RAM;
-        private System.Windows.Forms.ToolStripTextBox RAMSE;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem ppapp;
-        private System.Windows.Forms.ToolStripComboBox pppp;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 

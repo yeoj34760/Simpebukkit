@@ -21,11 +21,13 @@ namespace Simplebukkit
             System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(Tools.path(@"\JAR"));
             foreach (var item in di.GetFiles())
             {
+                if (comboBox1.Text == "")
+                {
+                    comboBox1.Text = item.Name;
+                }
                 comboBox1.Items.Add(item.Name);
             }
             FormClosing += new FormClosingEventHandler(closing);
-            RAMSE.Text = Properties.Settings.Default.RAM;
-            pppp.Text = Properties.Settings.Default.server_clean.ToString();
         }
         private void closing(object sender, FormClosingEventArgs e)
         {
@@ -45,12 +47,6 @@ namespace Simplebukkit
             catch (SystemException) { }
         }
 
-        private void RAMSE_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Properties.Settings.Default.RAM = RAMSE.Text;
-            Properties.Settings.Default.Save();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             start();
@@ -60,7 +56,7 @@ namespace Simplebukkit
         {
             bukkit = new Process();
             bukkit.StartInfo.FileName = "java.exe";
-            bukkit.StartInfo.Arguments = "-Djline.terminal=jline.UnsupportedTerminal -Xmx" + Properties.Settings.Default.RAM + " -Xms" + Properties.Settings.Default.RAM + " -jar \"" + Tools.path(@"\JAR\") + comboBox1.Text + "\"";
+            bukkit.StartInfo.Arguments = "-Djline.terminal=jline.UnsupportedTerminal -Xmx" + Properties.Settings.Default.RAM + "G -Xms" + Properties.Settings.Default.RAM + "G -jar \"" + Tools.path(@"\JAR\") + comboBox1.Text + "\"";
             bukkit.StartInfo.WorkingDirectory = Tools.path(@"\BUKKIT\");
             bukkit.EnableRaisingEvents = true;
             bukkit.StartInfo.CreateNoWindow = true;
@@ -90,8 +86,6 @@ namespace Simplebukkit
         {
             try
             {
-
-
                 CheckForIllegalCrossThreadCalls = false;
                 ppap.AppendText(Environment.NewLine + e.Data);
             }
@@ -107,26 +101,10 @@ namespace Simplebukkit
             }
         }
 
-
-        private void pppp_SelectedIndexChanged(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            string asdf = pppp.SelectedItem.ToString();
-          if(asdf == "true")
-            {
-                Properties.Settings.Default.server_clean = true;
-                Properties.Settings.Default.Save();
-            }
-            else
-            {
-                Properties.Settings.Default.server_clean = false;
-                Properties.Settings.Default.Save();
-
-            }
-        }
-
-        private void ppap_TextChanged(object sender, EventArgs e)
-        {
-
+            var Set = new Setting();
+            Set.ShowDialog();
         }
     }
 }
